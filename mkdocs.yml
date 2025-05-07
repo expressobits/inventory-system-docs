@@ -1,0 +1,44 @@
+site_name: Inventory System Documentation
+site_url: https://example.com
+site_description: Documentation for the Inventory System project.
+site_author: Rafael Correa
+theme:
+  name: material
+  # font:
+  #   text: Merriweather Sans
+  #   code: Red Hat Mono
+  logo: assets/icon.svg
+  palette: 
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: black
+      accent: cyan
+    # Light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: deep orange
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+      #combine_header_slug: true
+  - admonition
+  - pymdownx.details
+      
