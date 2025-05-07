@@ -1,28 +1,62 @@
 site_name: Inventory System Documentation
-site_url: https://example.com
+site_url: https://expressobits.com/inventory-system-docs
+repo_url: https://github.com/expressobits/inventory-system
+remote_branch: master
+repo_name: Inventory System
+remote_name: origin
 site_description: Documentation for the Inventory System project.
 site_author: Rafael Correa
+plugins:
+  - search
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    # - navigation.prune
+    - navigation.indexes
+    - toc.follow
+    # - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
   # font:
   #   text: Merriweather Sans
   #   code: Red Hat Mono
   logo: assets/icon.svg
   palette: 
     # Dark Mode
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       toggle:
-        icon: material/weather-sunny
+        icon: material/brightness-4
         name: Dark mode
       primary: black
       accent: cyan
     # Light mode
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       toggle:
-        icon: material/weather-night
+        icon: material/brightness-7
         name: Light mode
       primary: blue
-      accent: deep orange
+      accent: cyan
+
+extra:
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
 
 markdown_extensions:
   - attr_list

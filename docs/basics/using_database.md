@@ -1,4 +1,4 @@
-This page demonstrates how an inventory Database is used by the addon nodes.
+This page demonstrates how an inventory [database](#feature/database){ data-preview } is used by the addon nodes.
 
 After creating a database and filling it with information, such as items, you can start using it in your project through nodes that extend `NodeInventorySystemBase`:
 * Inventory

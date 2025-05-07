@@ -1,3 +1,10 @@
+---
+hide:
+  - navigation
+  - toc
+  - path
+---
+
 # Welcome to Inventory System Docs
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
