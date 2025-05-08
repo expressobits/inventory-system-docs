@@ -1,9 +1,7 @@
 site_name: Inventory System Documentation
 site_url: https://expressobits.com/inventory-system
 repo_url: https://github.com/expressobits/inventory-system
-remote_branch: main
 repo_name: Inventory System
-remote_name: origin
 site_description: Documentation for the Inventory System project.
 site_author: Rafael Correa
 edit_uri: edit/main/docs/
