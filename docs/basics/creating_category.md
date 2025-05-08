@@ -1,3 +1,7 @@
+---
+comments: true
+---
+
 You can use item categories to highlight a slot that only accepts that type of item.
 ![image](https://github.com/expressobits/inventory-system/assets/1673249/9294b461-8d61-41e0-9980-60c5dca21136)
 

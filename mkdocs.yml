@@ -1,16 +1,20 @@
 site_name: Inventory System Documentation
-site_url: https://expressobits.com/inventory-system-docs
+site_url: https://expressobits.com/inventory-system
 repo_url: https://github.com/expressobits/inventory-system
 remote_branch: master
 repo_name: Inventory System
 remote_name: origin
 site_description: Documentation for the Inventory System project.
 site_author: Rafael Correa
+edit_uri: edit/main/docs/
 plugins:
   - search
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
   features:
+    - content.action.edit
     - navigation.instant
     - navigation.instant.progress
     - navigation.tracking
@@ -50,6 +54,23 @@ theme:
       accent: cyan
 
 extra:
+  analytics:
+    provider: google
+    property: G-TBJYX8K1T0
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
   consent:
     title: Cookie consent
     description: >- 
