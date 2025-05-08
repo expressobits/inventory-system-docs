@@ -43,7 +43,7 @@ Let's create a variable pointing to the inventory, dragging it to the script whi
 ![godot windows opt tools 64_emNvmbmg6P](https://github.com/expressobits/inventory-system/assets/1673249/80ee0177-c02c-43d4-bf9f-f19bbd2b9782)
 
 We added code to display slots each time we click the configured action "interact" which in the demo is the E key
-```gdscript
+```gdscript title="add_items.gd" linenums="1"
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		print("Inventory Slots:")
@@ -73,7 +73,7 @@ A Slot
 ```
 
 Modify the code now to display when there is an item in the slot, its name and quantity, if not it displays the message "Empty"
-```gdscript
+```gdscript title="add_items.gd" linenums="1"
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		print("Inventory Slots:")
@@ -85,7 +85,7 @@ func _process(delta):
 ```
 
 Let's configure an item to be added, add a variable to link an item to the script, so we can add it to the inventory:
-```gdscript
+```gdscript title="add_items.gd" linenums="1"
 ...
 @onready var inventory = $Inventory
 
@@ -102,7 +102,7 @@ Place an item in the inspector, here we place the 'wood' item that is in the dem
 
 
 We added code that adds an item each time we click the Q key
-```gdscript
+```gdscript title="add_items.gd" linenums="1"
 			print(slot.item.definition.name," x ", slot.amount)
 			else:
 				print("Empty")
