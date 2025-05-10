@@ -1,8 +1,4 @@
-This tutorial teaches you how to work with the Inventory node.
-
-1. [Setup](https://github.com/expressobits/inventory-system/wiki/Inventory-Node#setup)
-
-2. [Add Items to Inventory](https://github.com/expressobits/inventory-system/wiki/Inventory-Node#Add-items-to-inventory)
+# Add items to Inventory
 
 ## Setup
 

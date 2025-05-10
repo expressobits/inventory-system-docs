@@ -1,4 +1,6 @@
-# Installing via Godot Asset Lib
+# Installation
+
+## Installing via Godot Asset Lib
 
 1.  Enter in Asset Lib on top view of Godot:
 
@@ -16,13 +18,24 @@
 
 ![image](https://github.com/expressobits/inventory-system/assets/1673249/d19c0f79-bb92-407f-882c-08521d2655c1)
 
-# Install via Git Modules
+## Install via Git Modules
 1. Open a terminal in your project folder
 
 2. Type command for add submodule
 
-`git submodule add https://github.com/expressobits/inventory-system.git addons/inventory-system`
+```bash
+git submodule add https://github.com/expressobits/inventory-system.git addons/inventory-system
+```
 
 3. Type command for start submodule
 
-`git submodule update --init --recursive`
+```bash
+git submodule update --init --recursive
+```
+
+
+## Active Plugin after install
+
+After installing, you may need to restart godot and then activate it in ProjectSettings
+
+![active_plugin](../assets/images/active_plugin.png)

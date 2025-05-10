@@ -4,7 +4,7 @@ repo_url: https://github.com/expressobits/inventory-system
 repo_name: Inventory System
 site_description: Documentation for the Inventory System project.
 site_author: Rafael Correa
-edit_uri: edit/main/docs/
+edit_uri: https://github.com/expressobits/inventory-system-docs/tree/main/docs/
 plugins:
   - search
 theme:
@@ -30,9 +30,9 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
-  # font:
-  #   text: Merriweather Sans
-  #   code: Red Hat Mono
+  font:
+    text: Red Hat Text
+    code: Red Hat Mono
   logo: assets/icon.svg
   palette: 
     # Dark Mode
@@ -78,6 +78,7 @@ extra:
       find what they're searching for. With your consent, you're helping us to
       make our documentation better.
 
+
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
@@ -95,4 +96,23 @@ markdown_extensions:
       #combine_header_slug: true
   - admonition
   - pymdownx.details
+
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - getting_started/introduction.md
+    - getting_started/installation.md
+    - Quickstart:
+      - getting_started/quickstart/create_database.md
+      - getting_started/quickstart/add_item_to_database.md
+      - getting_started/quickstart/add_items_to_inventory.md
+  - Features:
+    - features/database.md
+  - Tutorials:
+    - tutorials/add_items_to_inventory.md
+    - tutorials/how_to_test_multiplayer_demo.md
+  - Contributing: 
+    - contributing/index.md
+    - contributing/cmake_support.md
       
