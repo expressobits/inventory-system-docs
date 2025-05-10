@@ -1,115 +1,139 @@
 # Add items to Inventory
 
+In this guide we will start to see the nodes of this plugin, the first and most important is the Inventory Node, it is used to store your items.
+
+!!! note annotate "Grid Inventory"
+
+    There is also a [GridInventory](../../features/grid_inventory.md) node in the module that extends the Inventory node, it stores and manages items based on a grid using the grid_size attributes of the item definitions.
+
+
 ## Setup
 
 Let's start with an empty scene
 
-![image](https://github.com/expressobits/inventory-system/assets/1673249/73f81121-2288-46d6-b38c-2cf2d3ce63a3)
+![Empty Scene](../../assets/images/empty_scene_for_inventory_tutorial.png)
 
 Add an inventory node, the inventory node is the main structure of this addon.
 
 > **Note:** Understanding the basics is important to understand the flexibility of this addon.
 
-![godot windows opt tools 64_FWHxsDbJGb](https://github.com/expressobits/inventory-system/assets/1673249/29e461a7-fa7e-474a-a89c-2525d0a103cc)
+![Add Inventory Node](../../assets/images/add_inventory_node.gif)
 
 After adding the node, it will display a warning indicating that it needs to configure its database.
 
-> **Note:** The inventoryDatabase is where the item structures and their attributes will be saved, important data, for example, an item's identifier, are contained within this resource.
+!!! note annotate "Inventory Database data structure"
 
-This tutorial does not cover the database, we will use the database already available in the demo, to understand more about Inventory Database, check the tutorials about it.
+    The [InventoryDatabase](../../features/database.md) is where the item structures and their attributes will be saved, important data, for example, an item's identifier, are contained within this resource.
 
-![image](https://github.com/expressobits/inventory-system/assets/1673249/a87dd6b1-308c-4712-9483-266e8ae2b836)
+	This tutorial does not cover the database, we will use the database already available in the demo, to understand more about Inventory Database, check the tutorials about it.
+
+![Inventory Warning Missing Database](../../assets/images/inventory_warning.png)
 
 Define the database, it should look like this.
 
-![image](https://github.com/expressobits/inventory-system/assets/1673249/2cc35878-e94f-44d9-81f6-14c087b4458a)
+![Setup database in Inventory](../../assets/images/setup_database_in_inventory.png)
 
-In the node inspector, we can see the current inventory slots, we will use it to view what is available within the inventory. Don't change anything now.
-
-![image](https://github.com/expressobits/inventory-system/assets/1673249/2c76aa84-34bc-46c3-8d1e-7fda7c2a38a5)
+In the node inspector, we can see the current inventory stacks, we will use it to view what is available within the inventory. Don't change anything now.
 
 Create a test script on the parent node of the inventory node, it will be used for all our tests from now on.
 
-![godot windows opt tools 64_elGgAzjtnD](https://github.com/expressobits/inventory-system/assets/1673249/b62be47d-67b6-4516-8183-e5a77fd02493)
+![Add script to Inventory Node](../../assets/images/add_script_on_inventory_tutorial.gif)
 
-## Add Items to Inventory
+Let's add keys for interaction in this tutorial, to do this open the top menu "Project" -> "ProjectSettings" -> Access the "InputMap" tab
+!!! note annotate "Inventory System Demo Keys"
 
-Let's create a variable pointing to the inventory, dragging it to the script while holding the control key.
+    It is only necessary to create it if you do not have the inventory-system-demos folder, if it was added, it automatically adds keys to your project.
 
-![godot windows opt tools 64_emNvmbmg6P](https://github.com/expressobits/inventory-system/assets/1673249/80ee0177-c02c-43d4-bf9f-f19bbd2b9782)
+![Empty Input Map](../../assets/images/empty_input_map.png)
 
-We added code to display slots each time we click the configured action "interact" which in the demo is the E key
-```gdscript title="add_items.gd" linenums="1"
+Add the keys you will need for this guide:
+
+| Key         | Input Name  |
+| ----------- | ------------|
+| ++e++       | interact    |
+| ++f1++      | add_item_a  |
+
+If you don't know how to add it, you can see this guide from the godot documentation:
+[Input Examples in Godot Docs](https://docs.godotengine.org/en/latest/tutorials/inputs/input_examples.html)
+
+## Showing inventory items
+
+Let's now show the items in this inventory with a simple command.
+
+Let's create a variable pointing to the inventory, dragging it to the script while holding the ++ctrl++ key.
+
+![Add inventory variable](../../assets/images/add_variable_inventory_to_script.gif)
+
+We added code to display stacks each time we click the configured action "interact" which in the demo is the ++e++ key
+```gdscript title="inventory_tutorial.gd" linenums="1"
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
-		print("Inventory Slots:")
-		for slot in inventory.slots:
-			print("A Slot")
+		print("Inventory Stacks:")
+		for stack in inventory.stacks:
+			print("A Stack")
 ```
 
 The result is this:
 ```
-Inventory Slots:
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
-A Slot
+Inventory Stacks:
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
+A Stack
 ```
 
-Modify the code now to display when there is an item in the slot, its name and quantity, if not it displays the message "Empty"
-```gdscript title="add_items.gd" linenums="1"
+Modify the code now to display when there is an item in the stack, its id and quantity, if not it displays the message "Empty"
+```gdscript title="inventory_tutorial.gd" linenums="1"
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
-		print("Inventory Slots:")
-		for slot in inventory.slots:
-			if slot.item != null:
-				print(slot.item.definition.name," x ", slot.amount)
+		print("Inventory Stacks:")
+		for stack in inventory.stacks:
+			if stack.item != null:
+				print(stack.item_id," x ", stack.amount)
 			else:
 				print("Empty")
 ```
 
+## Add Items to Inventory
+
 Let's configure an item to be added, add a variable to link an item to the script, so we can add it to the inventory:
-```gdscript title="add_items.gd" linenums="1"
+```gdscript title="inventory_tutorial.gd" linenums="1"
 ...
 @onready var inventory = $Inventory
 
 # Add this 👇
-@export var item : Item
+@export var item_id : String = "wood"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 ...
 ```
 
-Place an item in the inspector, here we place the 'wood' item that is in the demo database
-![image](https://github.com/expressobits/inventory-system/assets/1673249/ddda5ce5-1d37-4373-8e90-9f4b299c2200)
-
-
-We added code that adds an item each time we click the Q key
-```gdscript title="add_items.gd" linenums="1"
-			print(slot.item.definition.name," x ", slot.amount)
+We added code that adds an item each time we click the ++f1++ key
+```gdscript title="inventory_tutorial.gd" linenums="1"
+			print(stack.item_id," x ", stack.amount)
 			else:
 				print("Empty")
         # Add this 👇
 	if Input.is_action_just_pressed("add_item_a"):
-		inventory.add(item, 1)
+		inventory.add(item_id, 1)
 ```
 
-Now after typing F1 (key that adds item configured in the demo) and then E (interaction key configured in the demo), you can see that an item has been added to the inventory.
+Now after typing ++f1++ (key that adds item configured in the demo) and then ++e++ (interaction key configured in the demo), you can see that an item has been added to the inventory.
 ```
-Inventory Slots:
+Inventory Stacks:
 Wood x 1
 Empty
 Empty

@@ -1,6 +1,10 @@
-# Installation
+# Installation and Setup
 
-## Installing via Godot Asset Lib
+## Installing
+
+There are two ways to install the plugin, via godot asset lib and via submodule
+
+### A. Installing via Godot Asset Lib
 
 Enter in Asset Lib on top view of Godot:
 
@@ -18,7 +22,7 @@ Select Install for add addon in your project.
 
 ![image](../assets/images/install_plugin.png)
 
-## Install via Git Modules
+### B. Install via Git Modules
 Open a terminal in your project folder
 
 Type command for add submodule

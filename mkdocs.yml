@@ -91,6 +91,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.keys
   - pymdownx.tabbed:
       alternate_style: true
       #combine_header_slug: true
@@ -109,8 +110,10 @@ nav:
       - getting_started/quickstart/add_items_to_inventory.md
   - Features:
     - features/database.md
+    - features/item_definition.md
+    - features/inventory.md
+    - features/grid_inventory.md
   - Tutorials:
-    - tutorials/add_items_to_inventory.md
     - tutorials/how_to_test_multiplayer_demo.md
   - Contributing: 
     - contributing/index.md

@@ -1,6 +1,11 @@
 # Creating a `Database`
 
 This guide shows how to create a new database, the demo (inventory-system-demos/base folder) in the addon already contains a database used in fps-demo.
+Database is a resource that will manage project-level information about items, recipes, and craft stations. It contains lists of internal resources for each data type. 
+
+!!! note annotate Editor do database
+
+    You can edit it via Godot's own inspector, but we recommend using the plugin's own editor for this.
 
 Go to **Inventory** in top view of godot editor
 
